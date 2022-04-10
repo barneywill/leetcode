@@ -129,6 +129,123 @@ public class MedianOfTwoSortedArrays {
         }
     }
 
+    class IntArray {
+        private int[] nums = null;
+        private int startIndex = 0;
+        public int length = 0;
+        public IntArray(int[] nums, int startIndex) {
+            this.nums = nums;
+            this.startIndex = startIndex;
+            length = this.nums.length - startIndex;
+        }
+        public int get(int index) {
+            return nums[startIndex + index];
+        }
+        public int binarySearch(int target) {
+            int index =  Arrays.binarySearch(nums, startIndex, nums.length, target);
+            index = index > 0 ? index - startIndex : index + startIndex;
+            return index;
+        }
+        public IntArray setStartIndex(int startIndex) {
+            this.startIndex = startIndex;
+            length = this.nums.length - startIndex;
+            return this;
+        }
+    }
+
+    private int[] search(IntArray nums1, IntArray nums2, int startIndex, int endIndex) {
+        System.out.println(nums1.length + ", " + nums2.length + ", " + startIndex + ", " + endIndex);
+        int startNum = 0;
+        int endNum = 0;
+        if (nums1.length == 0 || nums2.length == 0 || nums1.get(nums1.length - 1) <= nums2.get(0) || nums2.get(nums2.length - 1) <= nums1.get(0)) {
+            IntArray smallNums = nums1.length == 0 ? nums2 : nums2.length == 0 || nums1.get(nums1.length - 1) <= nums2.get(0) ? nums1 : nums2;
+            IntArray bigNums = nums1.length == 0 ? nums1 : nums2.length == 0 || nums1.get(nums1.length - 1) <= nums2.get(0) ? nums2 : nums1;
+            if (startIndex <= smallNums.length -1) {
+                startNum = smallNums.get(startIndex);
+            } else {
+                startNum = bigNums.get(startIndex - smallNums.length);
+            }
+            if (startIndex == endIndex) {
+                endNum = startNum;
+            } else {
+                if (endIndex <= smallNums.length - 1) {
+                    endNum = smallNums.get(endIndex);
+                } else {
+                    endNum = bigNums.get(endIndex - smallNums.length);
+                }
+            }
+            return new int[]{startNum, endNum};
+        } else if (nums1.length == 1 || nums2.length == 1) {
+            IntArray nums = nums1.length == 1 ? nums2 : nums1;
+            int num = nums1.length == 1 ? nums1.get(0) : nums2.get(0);
+            int index = nums.binarySearch(num);
+            index = index >= 0 ? index : Math.abs(index + 1);
+            if (startIndex < index) {
+                startNum = nums.get(startIndex);
+            } else if (startIndex == index) {
+                startNum = num;
+            } else {
+                startNum = nums.get(startIndex - 1);
+            }
+            if (endIndex == startIndex) {
+                endNum = startNum;
+            } else {
+                if (endIndex < index) {
+                    endNum = nums.get(endIndex);
+                } else if (endIndex == index) {
+                    endNum = num;
+                } else {
+                    endNum = nums.get(endIndex - 1);
+                }
+            }
+            return new int[]{startNum, endNum};
+        } else {
+            if (startIndex < 10) {
+                int i = 0;
+                int j = 0;
+                int current = 0;
+                while (true) {
+                    int num1 = i < nums1.length ? nums1.get(i) : 10000000;
+                    int num2 = j < nums2.length ? nums2.get(j) : 10000000;
+                    int numMin = Math.min(num1, num2);
+                    if (current == startIndex) {
+                        startNum = numMin;
+                    }
+                    if (current == endIndex) {
+                        endNum = numMin;
+                        break;
+                    }
+                    if (num1 <= num2) {
+                        i++;
+                    } else {
+                        j++;
+                    }
+                    current++;
+                }
+                return new int[]{startNum, endNum};
+            } else {
+                int medianIndex1 = (int)(nums1.length * (startIndex + 1.0) / (nums1.length + nums2.length)) - 1;
+                int medianIndex2 = (int)(nums2.length * (startIndex + 1.0) / (nums1.length + nums2.length)) - 1;
+                int median1 = nums1.get(medianIndex1);
+                int median2 = nums2.get(medianIndex2);
+
+                if (median1 <= nums2.get(0)) {
+                    return search(nums1.setStartIndex(medianIndex1 + 1), nums2, startIndex - medianIndex1 - 1, endIndex - medianIndex1 - 1);
+                } else if (median2 <= nums1.get(0)) {
+                    return search(nums1, nums2.setStartIndex(medianIndex2 + 1), startIndex - medianIndex2 - 1, endIndex - medianIndex2 - 1);
+                } else if (median1 <= median2) {
+                    int skipIndex = nums2.binarySearch(median1);
+                    skipIndex = skipIndex >= 0 ? skipIndex : Math.abs(skipIndex + 1);
+                    return search(nums1.setStartIndex(medianIndex1 + 1), nums2.setStartIndex(skipIndex), startIndex - medianIndex1 - skipIndex - 1, endIndex - medianIndex1 - skipIndex - 1);
+                } else {
+                    int skipIndex = nums1.binarySearch(median2);
+                    skipIndex = skipIndex >= 0 ? skipIndex : Math.abs(skipIndex + 1);
+                    return search(nums1.setStartIndex(skipIndex), nums2.setStartIndex(medianIndex2 + 1), startIndex - medianIndex2 - skipIndex - 1, endIndex - medianIndex2 - skipIndex - 1);
+                }
+            }
+        }
+    }
+
 //    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 //        int startIndex = 0;
 //        int endIndex = 0;
