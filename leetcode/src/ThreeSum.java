@@ -6,12 +6,14 @@ public class ThreeSum {
         System.out.println(instance.threeSum(new int[]{-1,0,1,2,-1,-4}));
         System.out.println(instance.threeSum(new int[]{}));
         System.out.println(instance.threeSum(new int[]{0}));
+        System.out.println(instance.threeSum(new int[]{0,0,0,0,0,0,0,-1,0,0,0,0,0,1}));
     }
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         int n = nums.length;
         if (n >= 3) {
             Integer[] numsArray = shrink(nums);
+            System.out.println(numsArray.length);
             n = numsArray.length;
             if (n >= 3) {
                 int min = numsArray[0];
@@ -23,11 +25,11 @@ public class ThreeSum {
                         if (numsArray[i] > 0) {
                             break;
                         }
-                        if (i > 0 && numsArray[i] == numsArray[i - 1]) {
+                        if (i > 0 && numsArray[i].equals(numsArray[i - 1])) {
                             continue;
                         }
                         for (int j = i + 1; j < n - 1; j++) {
-                            if (j > i + 1 && numsArray[j] == numsArray[j - 1]) {
+                            if (j > i + 1 && numsArray[j].equals(numsArray[j - 1])) {
                                 continue;
                             }
                             int sum = numsArray[i] + numsArray[j];
@@ -58,10 +60,8 @@ public class ThreeSum {
         for (int i = 0; i < nums.length; i++) {
             if (i <= 2) {
                 result.add(nums[i]);
-            } else {
-                if (nums[i] != result.get(result.size() - 3)) {
-                    result.add(nums[i]);
-                }
+            } else if (!result.get(result.size() - 3).equals(nums[i])) {
+                result.add(nums[i]);
             }
         }
         return result.toArray(new Integer[0]);
