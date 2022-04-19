@@ -6,11 +6,21 @@ public class MergeKSortedArray extends BaseListNode {
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode result = null;
         if (lists.length > 0) {
-            int[] arr = new int[20001];
+            int min = 10000;
+            int max = -10000;
+            for (ListNode list : lists) {
+                if (list != null && min > list.val) {
+                    min = list.val;
+                }
+            }
+            int[] arr = new int[10001 - min];
             for (ListNode list : lists) {
                 ListNode current = list;
                 while (current != null) {
-                    arr[current.val + 10001]++;
+                    arr[current.val - min]++;
+                    if (current.val > max) {
+                        max = current.val;
+                    }
                     current = current.next;
                 }
             }
@@ -19,13 +29,13 @@ public class MergeKSortedArray extends BaseListNode {
 //                    System.out.println(i + " : " + arr[i]);
 //                }
 //            }
-            for (int i = arr.length - 1; i >= 0; i--) {
+            for (int i = max - min; i >= 0; i--) {
                 if (arr[i] > 0) {
                     for (int j = 0; j < arr[i]; j++) {
                         if (result == null) {
-                            result = new ListNode(i - 10001);
+                            result = new ListNode(i + min);
                         } else {
-                            result = new ListNode(i - 10001, result);
+                            result = new ListNode(i + min, result);
                         }
                     }
                 }
