@@ -1,4 +1,4 @@
-public class MergeTwoSortedLists {
+public class MergeTwoSortedLists extends BaseListNode {
     public static void main(String[] args) {
 
     }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTwoNumbers {
+public class AddTwoNumbers extends BaseListNode {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode result = null;
         List<Integer> resultList = new ArrayList<Integer>();
@@ -29,12 +29,4 @@ public class AddTwoNumbers {
         }
         return result;
     }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
