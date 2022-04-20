@@ -1,14 +1,26 @@
 public class DivideTwoIntegers {
     public static void main(String[] args) {
-
+        DivideTwoIntegers instance = new DivideTwoIntegers();
+        System.out.println(instance.divide(10, 3));
+        System.out.println(instance.divide(7, -3));
+        System.out.println(instance.divide(Integer.MAX_VALUE, 2));
+        System.out.println(instance.divide(Integer.MAX_VALUE, 3));
+        System.out.println(instance.divide(1100540749, -1090366779));
+        System.out.println(instance.divide(-2147483648, -1017100424));
+        System.out.println(instance.divide(-2147483648, -2147483648));
+        System.out.println(instance.divide(1026117192, -874002063));
     }
     public int divide(int dividend, int divisor) {
         int result = 0;
-        if (divisor == 1 || divisor == -1) {
-            if (dividend == Integer.MIN_VALUE && divisor == -1) {
+        if (dividend == divisor) {
+            result = 1;
+        } else if (divisor == 1) {
+            result = dividend;
+        } else if (divisor == -1) {
+            if (dividend == Integer.MIN_VALUE) {
                 result = Integer.MAX_VALUE;
             } else {
-                result = dividend * divisor;
+                result = dividend * -1;
             }
         } else {
             int flag = (dividend < 0 ? -1 : 1) * (divisor < 0 ? -1 : 1);
@@ -20,27 +32,30 @@ public class DivideTwoIntegers {
                 dividend = Math.abs(dividend);
             }
             divisor = Math.abs(divisor);
-            int dividendLength = String.valueOf(dividend).length();
-            int divisorLength = String.valueOf(divisor).length();
-            if (dividendLength >= divisorLength) {
-                if (dividendLength > divisorLength) {
-                    String value = "1";
-                    for (int i = 0; i < dividendLength - divisorLength; i++) {
-                        value += "0";
-                    }
-                    while (value.length() > 1 && dividend > 0) {
-                        int newDivisor = Integer.parseInt(divisor + value.substring(1));
-                        while (newDivisor <= dividend) {
-                            result += Integer.parseInt(value);
-                            dividend -= newDivisor;
+            if (dividend == divisor) {
+                result = 1;
+            } else {
+                int dividendLength = String.valueOf(dividend).length();
+                int divisorLength = String.valueOf(divisor).length();
+                if (dividendLength >= divisorLength) {
+                    if (dividendLength - 1 > divisorLength) {
+                        int value = 1;
+                        for (int i = 0; i < dividendLength - divisorLength - 1; i++) {
+                            value *= 10;
                         }
-                        value = value.substring(0, value.length() - 1);
+                        while (value > 1 && dividend > 0) {
+                            int newDivisor = divisor * value;
+                            while (newDivisor > 0 && newDivisor <= dividend) {
+                                result += value;
+                                dividend -= newDivisor;
+                            }
+                            value = value / 10;
+                        }
                     }
-                }
-                int start = divisor;
-                while (start <= dividend + plus) {
-                    result++;
-                    start += divisor;
+                    while ((divisor <= dividend || divisor <= dividend + plus)) {
+                        result++;
+                        dividend -= divisor;
+                    }
                 }
             }
             result *= flag;
