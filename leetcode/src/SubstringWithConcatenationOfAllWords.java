@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SubstringWithConcatenationOfAllWords {
     public static void main(String[] args) {
@@ -16,8 +18,15 @@ public class SubstringWithConcatenationOfAllWords {
             pos.add(null);
         }
         boolean isPossible = true;
+        Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
+            if (!map.containsKey(word)) {
+                map.put(word, new ArrayList<Integer>());
+            }
+            map.get(word).add(i);
+        }
+        for (String word : map.keySet()) {
             int index = -1;
             boolean isFound = false;
             while (true) {
@@ -26,10 +35,7 @@ public class SubstringWithConcatenationOfAllWords {
                     break;
                 } else {
                     isFound = true;
-                    if (pos.get(index) == null) {
-                        pos.set(index, new ArrayList<Integer>());
-                    }
-                    pos.get(index).add(i);
+                    pos.set(index, map.get(word));
                 }
             }
             if (!isFound) {
