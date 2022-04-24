@@ -10,11 +10,13 @@ public class PermutationsII {
     }
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
+        Set<String> keys = new HashSet<String>();
         for (int i = 0; i < nums.length; i++) {
             if (i == 0) {
                 result.add(Arrays.asList(nums[i]));
             } else {
                 List<List<Integer>> nextResult = new ArrayList<List<Integer>>();
+                Set<String> nextKeys = new HashSet<String>();
                 for (List<Integer> list : result) {
                     for (int j = 0; j < list.size(); j++) {
                         if (nums[i] == list.get(j)) {
@@ -22,29 +24,28 @@ public class PermutationsII {
                         }
                         List<Integer> tmp = new ArrayList<Integer>(list);
                         tmp.add(j, nums[i]);
-                        nextResult.add(tmp);
+                        add(nextResult, tmp, nextKeys);
                     }
                     List<Integer> tmp = new ArrayList<Integer>(list);
                     tmp.add(nums[i]);
-                    nextResult.add(tmp);
+                    add(nextResult, tmp, nextKeys);
                 }
                 result.clear();
                 result = nextResult;
-            }
-        }
-        Set<String> set = new HashSet<String>();
-        for (int i = 0; i < result.size(); i++) {
-            List<Integer> item = result.get(i);
-            StringBuffer key = new StringBuffer();
-            for (Integer in : item) {
-                key.append(in);
-            }
-            if (!set.contains(key.toString())) {
-                set.add(key.toString());
-            } else {
-                result.remove(i--);
+                keys.clear();
+                keys = nextKeys;
             }
         }
         return result;
+    }
+    private void add(List<List<Integer>> nextResult, List<Integer> tmp, Set<String> keys) {
+        StringBuffer key = new StringBuffer();
+        for (Integer in : tmp) {
+            key.append(in);
+        }
+        if (!keys.contains(key.toString())) {
+            keys.add(key.toString());
+            nextResult.add(tmp);
+        }
     }
 }
