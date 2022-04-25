@@ -11,13 +11,27 @@ public class CombinationSumII {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         int sum = 0;
         int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         for (int candidate : candidates) {
             sum += candidate;
             if (min > candidate) {
                 min = candidate;
             }
+            if (max < candidate) {
+                max = candidate;
+            }
         }
-        if (target == sum) {
+        if (min == max) {
+            if (target % min == 0 && min * candidates.length >= target) {
+                List<Integer> prefix = new ArrayList<Integer>();
+                while (target > 0) {
+                    prefix.add(min);
+                    target -= min;
+                }
+                result.add(prefix);
+            }
+        }
+        else if (target == sum) {
             List<Integer> candidatesList = new ArrayList<Integer>();
             for (int candidate : candidates) {
                 candidatesList.add(candidate);
