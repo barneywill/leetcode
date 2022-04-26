@@ -55,7 +55,7 @@ public class SpiralMatrix {
             int jCurrent = 0;
             boolean isI = false;
             while (true) {
-                System.out.println("loop : (" + iCurrent + "," + jCurrent + ")  " + iStart + ", " + iEnd + " | " + jStart + ", " + jEnd + " | " + isI);
+//                System.out.println("loop : (" + iCurrent + "," + jCurrent + ")  " + iStart + ", " + iEnd + " | " + jStart + ", " + jEnd + " | " + isI);
                 if (iStart > iEnd || jStart > jEnd) {
                     result.add(matrix[iCurrent][jCurrent]);
                     break;
