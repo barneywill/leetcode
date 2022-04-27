@@ -17,6 +17,12 @@ public class ValidNumber {
             int numberEnd = s.length() - 1;
             int eStart = -1;
             int eEnd = -1;
+            if (!((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '+' || s.charAt(0) == '-' || s.charAt(0) == '.')) {
+                return false;
+            }
+            if (!((s.charAt(s.length() - 1) >= '0' && s.charAt(s.length() - 1) <= '9') || s.charAt(s.length() - 1) == '.')) {
+                return false;
+            }
             if (s.charAt(0) == '-' || s.charAt(0) == '+') {
                 numberStart++;
             }
