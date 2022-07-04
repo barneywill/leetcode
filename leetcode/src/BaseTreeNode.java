@@ -15,7 +15,7 @@ public class BaseTreeNode {
             this.right = right;
         }
     }
-    protected static TreeNode generate(Integer[] nums) {
+    static TreeNode generate(Integer[] nums) {
          TreeNode root = null;
          if (nums.length > 0) {
              List<Integer> numsList = new ArrayList<Integer>(Arrays.asList(nums));
@@ -49,7 +49,7 @@ public class BaseTreeNode {
          }
          return root;
     }
-    protected static void printTreeNode(TreeNode treeNode) {
+    static void printTreeNode(TreeNode treeNode) {
          StringBuffer buf = new StringBuffer();
          List<TreeNode> queue = new ArrayList<TreeNode>();
          queue.add(treeNode);
