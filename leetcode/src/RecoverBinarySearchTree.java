@@ -4,18 +4,18 @@ import java.util.List;
 public class RecoverBinarySearchTree extends BaseTreeNode {
     public static void main(String[] args) {
         RecoverBinarySearchTree instance = new RecoverBinarySearchTree();
-        TreeNode root = generate(new Integer[]{3,1,4,null,null,2});
+        TreeNode root = generateTreeNode(new Integer[]{3,1,4,null,null,2});
         printTreeNode(root);
         instance.recoverTree(root);
         printTreeNode(root);
 
-        root = generate(new Integer[]{2, 3, 1});
+        root = generateTreeNode(new Integer[]{2, 3, 1});
         printTreeNode(root);
         instance.recoverTree(root);
         printTreeNode(root);
 
         //[3,null,2,null,1]
-        root = generate(new Integer[]{3,null,2,null,1});
+        root = generateTreeNode(new Integer[]{3,null,2,null,1});
         printTreeNode(root);
         instance.recoverTree(root);
         printTreeNode(root);

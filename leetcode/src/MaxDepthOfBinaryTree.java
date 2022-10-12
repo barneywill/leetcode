@@ -4,10 +4,10 @@ import java.util.List;
 public class MaxDepthOfBinaryTree extends BaseTreeNode {
     public static void main(String[] args) {
         MaxDepthOfBinaryTree instance = new MaxDepthOfBinaryTree();
-        System.out.println(instance.maxDepth(generate(new Integer[]{3,9,20,null,null,15,7})));
-        System.out.println(instance.maxDepth(generate(new Integer[]{1,null,2})));
-        System.out.println(instance.maxDepth(generate(new Integer[]{1})));
-        System.out.println(instance.maxDepth(generate(new Integer[]{})));
+        System.out.println(instance.maxDepth(generateTreeNode(new Integer[]{3,9,20,null,null,15,7})));
+        System.out.println(instance.maxDepth(generateTreeNode(new Integer[]{1,null,2})));
+        System.out.println(instance.maxDepth(generateTreeNode(new Integer[]{1})));
+        System.out.println(instance.maxDepth(generateTreeNode(new Integer[]{})));
     }
     public int maxDepth(TreeNode root) {
         int result = 0;

@@ -1,9 +1,9 @@
 public class PartitionList extends BaseListNode {
     public static void main(String[] args) {
         PartitionList instance = new PartitionList();
-        print(instance.partition(generate(new int[]{1,4,3,2,5,2}), 3));
-        print(instance.partition(generate(new int[]{2,1}), 2));
-        print(instance.partition(generate(new int[]{1,1}), 2));
+        print(instance.partition(generateListNode(new int[]{1,4,3,2,5,2}), 3));
+        print(instance.partition(generateListNode(new int[]{2,1}), 2));
+        print(instance.partition(generateListNode(new int[]{1,1}), 2));
     }
     public ListNode partition(ListNode head, int x) {
         //firstLess

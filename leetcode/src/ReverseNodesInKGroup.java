@@ -1,10 +1,10 @@
 public class ReverseNodesInKGroup extends BaseListNode {
     public static void main(String[] args) {
         ReverseNodesInKGroup instance = new ReverseNodesInKGroup();
-        print(instance.reverseKGroup(generate(new int[]{1,2,3,4}), 2));
-        print(instance.reverseKGroup(generate(new int[]{1,2,3,4,5}), 2));
-        print(instance.reverseKGroup(generate(new int[]{}), 2));
-        print(instance.reverseKGroup(generate(new int[]{1}), 2));
+        print(instance.reverseKGroup(generateListNode(new int[]{1,2,3,4}), 2));
+        print(instance.reverseKGroup(generateListNode(new int[]{1,2,3,4,5}), 2));
+        print(instance.reverseKGroup(generateListNode(new int[]{}), 2));
+        print(instance.reverseKGroup(generateListNode(new int[]{1}), 2));
     }
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode result = head;

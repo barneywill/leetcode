@@ -4,8 +4,8 @@ import java.util.List;
 public class BinaryTreeZigzagLevelOrderTraversal extends BaseTreeNode {
     public static void main(String[] args) {
         BinaryTreeZigzagLevelOrderTraversal instance = new BinaryTreeZigzagLevelOrderTraversal();
-        System.out.println(instance.zigzagLevelOrder(generate(new Integer[]{3,9,20,null,null,15,7})));
-        System.out.println(instance.zigzagLevelOrder(generate(new Integer[]{1,2,3,4,null,null,5})));
+        System.out.println(instance.zigzagLevelOrder(generateTreeNode(new Integer[]{3,9,20,null,null,15,7})));
+        System.out.println(instance.zigzagLevelOrder(generateTreeNode(new Integer[]{1,2,3,4,null,null,5})));
     }
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();

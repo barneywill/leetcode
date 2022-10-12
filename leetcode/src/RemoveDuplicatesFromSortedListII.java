@@ -2,11 +2,11 @@ public class RemoveDuplicatesFromSortedListII extends BaseListNode {
     //TODO:
     public static void main(String[] args) {
         RemoveDuplicatesFromSortedListII instance = new RemoveDuplicatesFromSortedListII();
-        print(instance.deleteDuplicates(generate(new int[]{1,2,3,3,4,4,5})));
-        print(instance.deleteDuplicates(generate(new int[]{1,1,1,2,3})));
-        print(instance.deleteDuplicates(generate(new int[]{1,1,1})));
-        print(instance.deleteDuplicates(generate(new int[]{1,2,2})));
-        print(instance.deleteDuplicates(generate(new int[]{1})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,2,3,3,4,4,5})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,1,1,2,3})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,1,1})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,2,2})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1})));
     }
     public ListNode deleteDuplicates(ListNode head) {
         //newHead: when newHead == null and previous != current and previous != lastDuplicateValue then newHead = previous

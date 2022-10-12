@@ -15,7 +15,7 @@ public class BaseTreeNode {
             this.right = right;
         }
     }
-    static TreeNode generate(Integer[] nums) {
+    static TreeNode generateTreeNode(Integer[] nums) {
          TreeNode root = null;
          if (nums.length > 0) {
              List<Integer> numsList = new ArrayList<Integer>(Arrays.asList(nums));

@@ -1,10 +1,10 @@
 public class SwapNodesInPairs extends BaseListNode {
     public static void main(String[] args) {
         SwapNodesInPairs instance = new SwapNodesInPairs();
-        print(instance.swapPairs(generate(new int[]{1,2,3,4})));
-        print(instance.swapPairs(generate(new int[]{1,2,3,4,5})));
-        print(instance.swapPairs(generate(new int[]{})));
-        print(instance.swapPairs(generate(new int[]{1})));
+        print(instance.swapPairs(generateListNode(new int[]{1,2,3,4})));
+        print(instance.swapPairs(generateListNode(new int[]{1,2,3,4,5})));
+        print(instance.swapPairs(generateListNode(new int[]{})));
+        print(instance.swapPairs(generateListNode(new int[]{1})));
     }
     public ListNode swapPairs(ListNode head) {
         ListNode result = head;

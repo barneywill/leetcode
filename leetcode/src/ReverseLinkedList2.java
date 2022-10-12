@@ -1,8 +1,8 @@
 public class ReverseLinkedList2 extends BaseListNode {
     public static void main(String[] args) {
         ReverseLinkedList2 instance = new ReverseLinkedList2();
-        print(instance.reverseBetween(generate(new int[]{1, 2, 3, 4, 5}), 2, 4));
-        print(instance.reverseBetween(generate(new int[]{1, 2, 3, 4, 5}), 1, 5));
+        print(instance.reverseBetween(generateListNode(new int[]{1, 2, 3, 4, 5}), 2, 4));
+        print(instance.reverseBetween(generateListNode(new int[]{1, 2, 3, 4, 5}), 1, 5));
     }
     public ListNode reverseBetween(ListNode head, int left, int right) {
         ListNode current = head;

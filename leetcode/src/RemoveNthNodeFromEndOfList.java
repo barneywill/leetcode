@@ -1,9 +1,9 @@
 public class RemoveNthNodeFromEndOfList extends BaseListNode {
     public static void main(String[] args) {
         RemoveNthNodeFromEndOfList instance = new RemoveNthNodeFromEndOfList();
-        print(instance.removeNthFromEnd(generate(new int[]{1,2,3,4,5}), 2));
-        print(instance.removeNthFromEnd(generate(new int[]{1}), 1));
-        print(instance.removeNthFromEnd(generate(new int[]{1,2}), 1));
+        print(instance.removeNthFromEnd(generateListNode(new int[]{1,2,3,4,5}), 2));
+        print(instance.removeNthFromEnd(generateListNode(new int[]{1}), 1));
+        print(instance.removeNthFromEnd(generateListNode(new int[]{1,2}), 1));
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode nthNode = null;

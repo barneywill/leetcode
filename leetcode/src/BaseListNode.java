@@ -1,4 +1,4 @@
-public class BaseListNode {
+public class BaseListNode extends BaseTreeNode {
     static class ListNode {
         int val;
         ListNode next;
@@ -6,7 +6,7 @@ public class BaseListNode {
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
-    static ListNode generate(int[] nums) {
+    static ListNode generateListNode(int[] nums) {
         ListNode result = null;
         for (int i = nums.length - 1; i >= 0; i--) {
             result = new ListNode(nums[i], result);

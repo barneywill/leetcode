@@ -1,11 +1,11 @@
 public class RemoveDuplicateFromSortedList extends BaseListNode {
     public static void main(String[] args) {
         RemoveDuplicateFromSortedList instance = new RemoveDuplicateFromSortedList();
-        print(instance.deleteDuplicates(generate(new int[]{1,2,3,3,4,4,5})));
-        print(instance.deleteDuplicates(generate(new int[]{1,1,1,2,3})));
-        print(instance.deleteDuplicates(generate(new int[]{1,1,1})));
-        print(instance.deleteDuplicates(generate(new int[]{1,2,2})));
-        print(instance.deleteDuplicates(generate(new int[]{1})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,2,3,3,4,4,5})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,1,1,2,3})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,1,1})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1,2,2})));
+        print(instance.deleteDuplicates(generateListNode(new int[]{1})));
     }
     public ListNode deleteDuplicates(ListNode head) {
         ListNode current = head;

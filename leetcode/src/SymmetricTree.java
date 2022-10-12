@@ -4,8 +4,8 @@ import java.util.List;
 public class SymmetricTree extends BaseTreeNode {
     public static void main(String[] args) {
         SymmetricTree instance = new SymmetricTree();
-        System.out.println(instance.isSymmetric(generate(new Integer[]{1,2,2,3,4,4,3})));
-        System.out.println(instance.isSymmetric(generate(new Integer[]{1,2,2,null,3,null,3})));
+        System.out.println(instance.isSymmetric(generateTreeNode(new Integer[]{1,2,2,3,4,4,3})));
+        System.out.println(instance.isSymmetric(generateTreeNode(new Integer[]{1,2,2,null,3,null,3})));
     }
     public boolean isSymmetric(TreeNode root) {
         boolean result = false;

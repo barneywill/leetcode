@@ -4,9 +4,9 @@ import java.util.List;
 public class BinaryTreeLevelOrderTraversal extends BaseTreeNode {
     public static void main(String[] args) {
         BinaryTreeLevelOrderTraversal instance = new BinaryTreeLevelOrderTraversal();
-        System.out.println(instance.levelOrder(generate(new Integer[]{3,9,20,null,null,15,7})));
-        System.out.println(instance.levelOrder(generate(new Integer[]{3})));
-        System.out.println(instance.levelOrder(generate(new Integer[]{})));
+        System.out.println(instance.levelOrder(generateTreeNode(new Integer[]{3,9,20,null,null,15,7})));
+        System.out.println(instance.levelOrder(generateTreeNode(new Integer[]{3})));
+        System.out.println(instance.levelOrder(generateTreeNode(new Integer[]{})));
     }
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();

@@ -1,7 +1,7 @@
 public class MergeKSortedArray extends BaseListNode {
     public static void main(String[] args) {
         MergeKSortedArray instance = new MergeKSortedArray();
-        print(instance.mergeKLists(new ListNode[]{generate(new int[]{1,4,5}), generate(new int[]{1,3,4}), generate(new int[]{2,6})}));
+        print(instance.mergeKLists(new ListNode[]{generateListNode(new int[]{1,4,5}), generateListNode(new int[]{1,3,4}), generateListNode(new int[]{2,6})}));
     }
     public ListNode mergeKLists(ListNode[] lists) {
         ListNode result = null;
