@@ -6,10 +6,9 @@ object TwoSum2 {
   }
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {
     for (i <- 0 until nums.length - 1) {
-      val numOne = nums.apply(i)
-      val numTwo = target - numOne
+      val num = target - nums.apply(i)
       for (j <- i + 1 until nums.length) {
-        if (nums.apply(j) == numTwo) return Array(i, j)
+        if (nums.apply(j) == num) return Array(i, j)
       }
     }
     null
