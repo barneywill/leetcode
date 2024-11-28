@@ -6,15 +6,20 @@ class ValidParenthese:
                 stack.append(c)
             else:
                 last = stack[0]
-                if (last == '{' or last == '[' or last == '(') and (c == '{' or c == "[" or c == '('):
+                if self.is_start(last) and self.is_start(c):
                     stack.insert(0, c)
                     continue
-                elif (last == '{' and c == '}') or (last == '[' and c == ']') or (last == '(' and c == ')'):
+                elif self.is_match(last, c):
                     stack.pop(0)
                     continue
                 else:
                     return False
         return len(stack) == 0
+    def is_start(self, c: str) -> bool:
+        return c == '{' or c == '[' or c == '('
+    def is_match(self, c1: str, c2: str) -> bool:
+        return (c1 == '{' and c2 == '}') or (c1 == '[' and c2 == ']') or (c1 == '(' and c2 == ')')
+
 
 if __name__ == '__main__':
     instance = ValidParenthese()
