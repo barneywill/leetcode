@@ -1,9 +1,9 @@
 class LengthOfLastWrod:
     def lengthOfLastWord(self, s: str) -> int:
-        list = s.split(' ')
-        for i in range(len(list) - 1, -1, -1):
-            if list[i] != '':
-                return len(list[i])
+        ls = s.split(' ')
+        for i in range(len(ls) - 1, -1, -1):
+            if ls[i] != '':
+                return len(ls[i])
         return 0
 
 if __name__ == '__main__':

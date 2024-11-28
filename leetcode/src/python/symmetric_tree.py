@@ -9,12 +9,12 @@ class TreeNode:
         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        return self.compare(root.left, root.right) if root != None else True
+        return self.compare(root.left, root.right) if root is not None else True
     def compare(self, l: Optional[TreeNode], r: Optional[TreeNode]) -> bool:
         result = False
-        if l == None and r == None:
+        if l is None and r is None:
             result = True
-        elif l == None or r == None:
+        elif l is None or r is None:
             result = False
         else:
             if l.val != r.val:

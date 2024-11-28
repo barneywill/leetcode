@@ -10,10 +10,10 @@ class TreeNode:
 class BinaryTreeInorderTraversal:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         result = []
-        if root != None:
-            if root.left != None:
+        if root is not None:
+            if root.left is not None:
                 result += self.inorderTraversal(root.left)
             result.append(root.val)
-            if root.right != None:
+            if root.right is not None:
                 result += self.inorderTraversal(root.right)
         return result

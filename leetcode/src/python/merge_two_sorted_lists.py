@@ -8,18 +8,18 @@ class ListNode:
 
 class MergeTwoSortedLists:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        if list1 == None:
+        if list1 is None:
             return list2
-        elif list2 == None:
+        elif list2 is None:
             return list1
         else:
             result = None
             cursor = None
-            while list1 != None or list2 != None:
-                if list1 == None:
+            while list1 is not None or list2 is not None:
+                if list1 is None:
                     cursor.next = list2
                     break
-                elif list2 == None:
+                elif list2 is None:
                     cursor.next = list1
                     break
                 else:
@@ -30,7 +30,7 @@ class MergeTwoSortedLists:
                     else:
                         tmp.val = list2.val
                         list2 = list2.next
-                    if result == None:
+                    if result is None:
                         result = tmp
                         cursor = result
                     else:

@@ -7,9 +7,9 @@ class ListNode:
         self.next = next
 class RemoveDuplicatesFromSortedList:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head != None:
+        if head is not None:
             current = head
-            while current.next != None:
+            while current.next is not None:
                 n = current.next
                 if current.val == n.val:
                     current.next = n.next
