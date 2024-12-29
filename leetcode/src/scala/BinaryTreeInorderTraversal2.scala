@@ -8,6 +8,12 @@
  */
 object BinaryTreeInorderTraversal2 {
     def inorderTraversal(root: TreeNode): List[Int] = {
-        
+        var result : List[Int] = List()
+        if (root != null) {
+            if (root.left != null) result = inorderTraversal(root.left)
+            result = result :+ root.value
+            if (root.right != null) result = List.concat(result, inorderTraversal(root.right))
+        }
+        result
     }
 }
