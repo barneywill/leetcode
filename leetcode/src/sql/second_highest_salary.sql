@@ -1,3 +1,4 @@
+-- working
 select null as SecondHighestSalary
 from Employee
 having count(distinct salary) < 2
@@ -11,3 +12,13 @@ from
 ) a
 where rn = 2
 limit 1
+
+-- not working
+select next_salary as SecondHighestSalary
+from
+(
+	select salary, lead(salary) over (order by salary desc) as next_salary
+	from Employee
+    order by salary desc
+    limit 1
+) a
