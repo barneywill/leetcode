@@ -4,7 +4,7 @@
 | |Language|Solved|
 |---|---|---|
 |1|<a href='https://github.com/barneywill/leetcode/tree/master/leetcode/src/java'>Java</a>|132|
-|2|<a href='https://github.com/barneywill/leetcode/tree/master/leetcode/src/scala'>Scala</a>|27|
+|2|<a href='https://github.com/barneywill/leetcode/tree/master/leetcode/src/scala'>Scala</a>|28|
 |3|<a href='https://github.com/barneywill/leetcode/tree/master/leetcode/src/python'>Python</a>|64|
 |4|<a href='https://github.com/barneywill/leetcode/tree/master/leetcode/src/pandas'>Pandas</a>|8|
 |5|<a href='https://github.com/barneywill/leetcode/tree/master/leetcode/src/sql'>SQL</a>|16|
